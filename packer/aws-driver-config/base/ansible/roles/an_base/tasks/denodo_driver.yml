@@ -1,0 +1,25 @@
+---
+
+- name: Copy driver file to remote
+  copy:
+    src: files/denodo-vdp-odbcdriver-7.0-update-20200803-linux.zip
+    dest: /tmp/denodo-driver.zip
+    owner: root
+    group: root
+    mode: 0777
+
+- name: Unzip file driver to destination
+  unarchive:
+    src: /tmp/denodo-driver.zip
+    dest: /opt
+
+- name: Denodo Driver template
+  template:
+    src: templates/denodo.template
+    dest: /tmp/denodo.template
+    owner: root
+    group: root
+    mode: 0777
+
+- name: Apply denodo.template to odbcinst
+  command: "odbcinst -install -driver -file /tmp/denodo.template"

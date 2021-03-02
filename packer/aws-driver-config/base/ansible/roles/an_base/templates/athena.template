@@ -1,0 +1,11 @@
+[AWSAthenaDriver]
+Description=AWS Athena ODBC Driver 64-bit DSN
+Driver=/opt/simba/athenaodbc/lib/64/libathenaodbc_sb64.so
+AwsRegion=[REGION]
+Schema=default
+S3OutputLocation=[OUTPUT_S3_BUCKET]
+AuthenticationType=Default Credentials
+UID=[USERNAME]
+PWD=[PASSWORD]
+SessionToken=[SESSION_TOKEN]
+UsageCount=1

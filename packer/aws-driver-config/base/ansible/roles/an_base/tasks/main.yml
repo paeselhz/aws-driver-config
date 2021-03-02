@@ -1,0 +1,10 @@
+---
+
+- name: Install required OS packages
+  include_tasks: "os_packages.yml"
+
+- name: Install and configure AWS Athena Driver
+  include_tasks: "athena_driver.yml"
+
+- name: Install and configure Denodo VDP Driver
+  include_tasks: "denodo_driver.yml"

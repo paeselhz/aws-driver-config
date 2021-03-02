@@ -1,0 +1,22 @@
+---
+
+- name: Download athena driver
+  get_url:
+    url: https://s3.amazonaws.com/athena-downloads/drivers/ODBC/SimbaAthenaODBC_1.1.6.1000/Linux/simbaathena-1.1.6.1000-1.el7.x86_64.rpm
+    dest: /tmp/simba_athena.rpm
+
+- name: Install athena driver
+  yum:
+    name: /tmp/simba_athena.rpm
+    state: present
+
+- name: Athena Driver template
+  template:
+    src: templates/athena.template
+    dest: /tmp/athena.template
+    owner: root
+    group: root
+    mode: 0777
+
+- name: Apply athena.template to odbcinst
+  command: "odbcinst -install -driver -file /tmp/athena.template"

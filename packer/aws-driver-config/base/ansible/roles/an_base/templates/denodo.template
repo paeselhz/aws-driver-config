@@ -1,0 +1,4 @@
+[DenodoODBCDriver]
+Description=ODBC Driver for Denodo 7.0
+Driver=/opt/denodo-vdp-odbcdriver-linux/lib/unixodbc_x64/denodoodbc.so
+UsageCount=1
